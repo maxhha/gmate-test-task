@@ -1,3 +1,10 @@
 $color-base-0: #152536;
 $color-base-1: #FFFFFF;
+$color-faint: #CED4DA;
 $color-accent: #052C65;
+$color-success: #28A745;
+
+$theme-colors: (
+    "primary": $color-accent,
+    "success": $color-success
+);
