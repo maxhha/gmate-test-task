@@ -1,0 +1,16 @@
+@import "../../styles/constants.scss";
+
+.Header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    background-color: $color-accent;
+    color: $color-base-1;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1rem;
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+}
