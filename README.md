@@ -15,7 +15,7 @@ npm start
 **Фронтенд**
 
 ```
-cd fornt
+cd front
 nvm use
 npm install
 npm start
