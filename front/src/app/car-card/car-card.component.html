@@ -1,0 +1,70 @@
+<ng-template #deleteModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete {{ car.name }}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="mb-2">Are you sure want to delete this car?</div>
+    <div class="mb-2 d-flex justify-content-end">
+      <button
+        class="btn btn-secondary CarCard__button"
+        (click)="modal.dismiss('cancel')"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn btn-primary CarCard__button"
+        (click)="modal.close('delete')"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #updateModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update {{ car.name }}</h4>
+  </div>
+  <div class="modal-body">
+    <app-car-form
+      [buttonText]="'Save'"
+      [car]="car"
+      (submit)="handleUpdate($event, modal)"
+    ></app-car-form>
+  </div>
+</ng-template>
+
+<div class="card CarCard">
+  <img
+    class="card-img-top CarCard__image"
+    src="{{ imageUrl }}/{{ car.image }}"
+    alt="Image of {{ car.image }}"
+  />
+  <div class="card-body CarCard__body">
+    <h5 class="card-title CarCard__title">{{ car.name }}</h5>
+    <table class="CarCard__properties PropertiesList">
+      <tbody>
+        <tr *ngFor="let prop of PROPERTIES" class="PropertiesList__item">
+          <td class="PropertiesList__name">{{ prop.name }}:</td>
+          <td class="PropertiesList__value">
+            {{ prop.getter(car) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="CarCard__controls">
+      <button
+        class="btn btn-secondary CarCard__button"
+        (click)="handleOpenUpdateModal(updateModal)"
+      >
+        Update
+      </button>
+      <button
+        class="btn btn-danger CarCard__button"
+        (click)="handleOpenDeleteModal(deleteModal)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

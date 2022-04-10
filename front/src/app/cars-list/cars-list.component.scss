@@ -4,7 +4,7 @@
     &__controls {
         display: flex;
         justify-content: space-between;
-        padding: 50px 0;
+        margin-bottom: $blk-m1;
     }
     &__search {
         max-width: 420px;
@@ -12,7 +12,15 @@
     }
     &__add {
         color: $color-base-1;
-        font-weight: 700;
-        width: 100px;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        list-style: none;
+        padding: 0;
+    }
+    &__item {
+        width: 350px;
     }
 }

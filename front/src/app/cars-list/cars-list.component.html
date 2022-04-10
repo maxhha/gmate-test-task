@@ -1,6 +1,32 @@
+<ng-template #addModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add new car</h4>
+  </div>
+  <div class="modal-body">
+    <app-car-form
+      [buttonText]="'Add'"
+      (submit)="handleAdd($event, modal)"
+    ></app-car-form>
+  </div>
+</ng-template>
+
 <div class="CarsList">
   <div class="CarsList__controls">
-    <input class="form-control CarsList__search" placeholder="Search..." />
-    <button class="btn btn-success CarsList__add">Add</button>
+    <input
+      class="form-control CarsList__search"
+      placeholder="Search..."
+      (input)="handleSearch($event)"
+    />
+    <button
+      class="btn btn-success CarsList__add"
+      (click)="handleOpenAddModal(addModal)"
+    >
+      Add
+    </button>
   </div>
+  <ul class="CarsList__list">
+    <li *ngFor="let car of cars" class="CarsList__item">
+      <app-car-card [car]="car"></app-car-card>
+    </li>
+  </ul>
 </div>

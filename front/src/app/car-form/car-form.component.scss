@@ -1,0 +1,11 @@
+@import "../../styles/constants.scss";
+
+.CarForm {
+    &__label {
+        &_required::after {
+            content: '*';
+            padding-left: 4px;
+            color: $color-danger;
+        }
+    }
+}

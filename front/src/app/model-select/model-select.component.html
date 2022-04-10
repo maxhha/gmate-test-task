@@ -1,0 +1,9 @@
+<select class="form-select" required name="{{ name }}" value="{{ value }}">
+  <option
+    *ngFor="let model of models"
+    value="{{ model.id }}"
+    [selected]="value === model.id"
+  >
+    {{ model.name }}
+  </option>
+</select>

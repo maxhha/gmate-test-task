@@ -1,0 +1,33 @@
+<form (submit)="handleSubmit($event)" class="CarForm">
+  <div class="mb-2">
+    <label class="mb-2 CarForm__label CarForm__label_required">Name</label>
+    <input class="form-control" required name="name" value="{{ car?.name }}" />
+  </div>
+  <div class="mb-2">
+    <label class="mb-2 CarForm__label CarForm__label_required">Model</label>
+    <app-model-select
+      [name]="'modelId'"
+      [value]="car?.model?.id"
+    ></app-model-select>
+  </div>
+  <div class="mb-2">
+    <label class="mb-2 CarForm__label CarForm__label_required">Color</label>
+    <input
+      class="form-control"
+      required
+      name="color"
+      value="{{ car?.color }}"
+    />
+  </div>
+  <div class="mb-2">
+    <label class="mb-2 CarForm__label CarForm__label_required">Year</label>
+    <input class="form-control" required name="year" value="{{ car?.year }}" />
+  </div>
+  <div class="mb-2">
+    <label class="mb-2 CarForm__label CarForm__label_required">Image</label>
+    <input #imageInput class="form-control" required name="image" type="file" />
+  </div>
+  <div class="mb-2 d-flex justify-content-end">
+    <input type="submit" class="btn btn-primary" value="{{ buttonText }}" />
+  </div>
+</form>
